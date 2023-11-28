@@ -1,0 +1,16 @@
+apply plugin: "java"
+
+description = "Spring Beans"
+
+ext.snakeyamlVersion="1.17"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework:spring-core:4.3.30.RELEASE")
+    implementation("javax.inject:javax.inject:1")
+    implementation("javax.el:javax.el-api:2.2.5")
+    implementation("org.yaml:snakeyaml:${snakeyamlVersion}")
+}
