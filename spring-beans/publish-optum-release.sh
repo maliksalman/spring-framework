@@ -20,6 +20,9 @@ DST=${LOCAL_MVN_CACHE}/org/springframework/spring-beans/${DST_VER}
 rm -rf ${DST}
 mkdir -p ${DST}
 
+# copy over the javadoc jar
+cp ${LOCAL_MVN_CACHE}/org/springframework/spring-beans/${SRC_VER}/spring-beans-${SRC_VER}-javadoc.jar ${DST}/spring-beans-${DST_VER}-javadoc.jar
+
 # patch the sources
 cp ${LOCAL_MVN_CACHE}/org/springframework/spring-beans/${SRC_VER}/spring-beans-${SRC_VER}-sources.jar ${DST}/spring-beans-${DST_VER}-sources.jar
 pushd ${WORKSPACE}/spring-beans/src/main/java
@@ -49,7 +52,7 @@ xmlstarlet edit -L -N w=http://maven.apache.org/POM/4.0.0 \
     ${DST}/spring-beans-${DST_VER}.pom
 
 # create the sha1 sums
-for NM in .pom -sources.jar .jar; do
+for NM in .pom -sources.jar -javadoc.jar .jar; do
     SUM=$(sha1sum ${DST}/spring-beans-${DST_VER}${NM} | cut -d ' ' -f 1)
     echo -n "$SUM" > ${DST}/spring-beans-${DST_VER}${NM}.sha1
 done
