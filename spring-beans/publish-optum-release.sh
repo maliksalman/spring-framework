@@ -1,8 +1,13 @@
 #!/bin/bash
 
+#
+# https://www.xenonstack.com/insights/vulnerabilities-spring4shell/#:~:text=Upgrade%20to%20spring%20frameworks%205.3,cannot%20upgrade%20the%20spring%20Framework.
+# https://github.com/spring-projects/spring-framework/compare/v5.3.17...v5.3.18
+#
+
 SRC_VER="4.3.30.RELEASE"
-LOCAL_MVN_CACHE="${HOME}/.m2/repository"
 DST_VER="4.3.30.optum-1.RELEASE"
+LOCAL_MVN_CACHE="${HOME}/.m2/repository"
 WORKSPACE=$(dirname $PWD)
 
 # verify all the required tools are installed
